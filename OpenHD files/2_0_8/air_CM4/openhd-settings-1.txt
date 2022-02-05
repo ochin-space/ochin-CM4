@@ -12,7 +12,7 @@ FREQ=auto
 
 # >>>>>>>>>>[DATARATE] Lower settings yield higher range and vice versa.  
 # Below are the datarate settings for Legacy B/G and MCS "N" modes. 
-DATARATE=3
+DATARATE=4
 
 # 1 - 5.5   =    802.11b         1 - 6.5   =     MCS 0
 # 2 - 11    =    802.11b         2 - 13    =     MCS 1
@@ -35,9 +35,7 @@ DATARATE_SECONDARY_8812AU=2
 
 # >>>>>>>>>>[TXPOWER-AIR/GROUND]-- For Atheros AR9271 or RTL8812/14AU Cards ONLY
 TxPowerAir=10
-#54
 TxPowerGround=10
-#54
 
 # >>>>>>>>>>[TXPOWER-RALINK]-- (Not confirmed Working]
 TXPOWER=2000
@@ -72,7 +70,7 @@ ENABLE_SCREENSHOTS=N
 DISPLAY_OSD=Y
 
 # set to "Y" to use the QOpenHD app instead of the original OSD
-ENABLE_QOPENHD=N
+ENABLE_QOPENHD=Y
 
 # >>>>>>>>>>[5/10/20Mhz BANDWIDTH SETTINGS]--Default 20mhz
 # !!!!!!! ATHEROS CARDS ONLY  !!!!!!!!!!!!!!!!!!!!!
@@ -101,7 +99,7 @@ VIDEO_BITRATE=auto
 # this to a lower value like 60% to avoid a delayed video stream.
 # On free channels you may set this to a higher value like 75% to get a higher
 # bitrate and thus image quality.
-BITRATE_PERCENT=50
+BITRATE_PERCENT=65
 
 # >>>>>>>>>>[CAMERA RESOLUTION]--
 # V1 cam: 1280x720: 30fps, 48fps. 1920x1080: 30fps
