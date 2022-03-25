@@ -8,11 +8,11 @@
 # By default the frequency will be chosen automatically for the hardware you have connected to your ground/air pi,
 # but if you want to set a frequency manually, make sure it is supported by your hardware. Atheros cards are 2.4Ghz only
 # and Realtek 8812/14 cards are only stable on 5.8Ghz. Frequencies are listed at the bottom of this file
-FREQ=auto
+FREQ=5320
 
 # >>>>>>>>>>[DATARATE] Lower settings yield higher range and vice versa.  
 # Below are the datarate settings for Legacy B/G and MCS "N" modes. 
-DATARATE=4
+DATARATE=3
 
 # 1 - 5.5   =    802.11b         1 - 6.5   =     MCS 0
 # 2 - 11    =    802.11b         2 - 13    =     MCS 1
@@ -34,8 +34,8 @@ UseLDPC=N
 DATARATE_SECONDARY_8812AU=2
 
 # >>>>>>>>>>[TXPOWER-AIR/GROUND]-- For Atheros AR9271 or RTL8812/14AU Cards ONLY
-TxPowerAir=10
-TxPowerGround=10
+TxPowerAir=58
+TxPowerGround=58
 
 # >>>>>>>>>>[TXPOWER-RALINK]-- (Not confirmed Working]
 TXPOWER=2000
@@ -70,7 +70,7 @@ ENABLE_SCREENSHOTS=N
 DISPLAY_OSD=Y
 
 # set to "Y" to use the QOpenHD app instead of the original OSD
-ENABLE_QOPENHD=Y
+ENABLE_QOPENHD=N
 
 # >>>>>>>>>>[5/10/20Mhz BANDWIDTH SETTINGS]--Default 20mhz
 # !!!!!!! ATHEROS CARDS ONLY  !!!!!!!!!!!!!!!!!!!!!
@@ -118,6 +118,11 @@ FPS=30
 # You can set this higher or lower according to your needs. Minimum value is 2.
 KEYFRAMERATE=10
 #
+# >>>>>>>>>>[RASPIVID CAMERA SETTINGS]--
+# There are dozens of paramaters, see the RPI forum for all settings.
+EXTRAPARAMS="-cd H264 -n -fl -ih -pf high -if both -ex sports -mm average -awb horizon"
+# UNCOMMENT, AND USE THESE CAMERA SETTINGS FOR THE B101 OR SIMILAR HDMI-CSI ADAPTER
+#EXTRAPARAMS="-cd H264 -n -fl -ih -pf high -if both"
 
 # >>>>>>>>>>[SAVE VIDEO-RAMdisk/Memory]--Set to "memory" to use RAMdisk for temporary video/screenshot/telemetry 
 # storage recording time to ~12-14 minutes, but is the safe way. If you need longer recording times, use "sdcard", to 
@@ -152,7 +157,7 @@ WIFI_HOTSPOT_NIC=internal
 # and internal hotspot is 2.4ghz. For 2.4ghz hotspot and 2.4ghz video must be manually set at your own risk!
 # Set "Y" to enable Hotspot and you (manually) set the band & ch below. 
 # Set to "N" for no wifi hotspot (Recommended If NOT using Pi3b+ & 2.4ghz for video as it could # interfere.
-WIFI_HOTSPOT=auto
+WIFI_HOTSPOT=N
 
 # >>>>>>>>>>[HOTSPOT BAND/CHANNEL_MANUAL CONFIG]
 # NOTE with WIFI_HOTSPOT=auto your setting here will be over written.
@@ -211,7 +216,7 @@ EncryptionOrRange=Range
 # Set to "sumd" for Graupner SUMD, "ibus" for Flysky IBUS, "srxl" for Multiplex SRXL/XBUS
 # Mode B. Set to "disabled" to disable
 # **See joyconfig.txt for other settings, default settings work for Taranis in USB.
-RC=mavlink
+RC=ibus
 
 # >>>>>>>>>>[DEDICATED WIFI-CARD UPLINK/RC MAC ADDR.]-- If different types of Ground wifi cards are used.
 # Set this if you have 1 High-Power ground card plus 1 or more lower power cards so that
@@ -301,377 +306,75 @@ IsAudioTransferEnabled=0
 MicBoost=75
 SpeakersLevel=75
 
-# >>>>>>>>>>[CAMERA MODULES & SETTINGS]--
-
-# >>>>>>>>>>[RASPIVID CAMERA SETTINGS]--
-
-# ------GENERIC CAMERA SETTINGS----------------
-
-# Only supported codec currently is H264
-camera_codec=H264
-
-# choose between baseline, main or high
-h264_profile=high
-
-# Sets the H264 intra-refresh type. Possible options are cyclic, adaptive, both, and cyclicrows
-intra_refresh=both
-
-# ------RASPBERRY PI CAMERA SETTINGS-----------
-
-# Possible options are: off, auto, night, nightpreview, backlight, spotlight, sports, snow, beach, verylong, fixedfps, antishake, fireworks
-# Note that not all of these settings may be implemented, depending on camera tuning.
-rpi0_camera_exposure=backlight
-
-# Specify the metering mode used for the preview and capture: average, spot, backlit, matrix
-rpi0_metering_mode=average
-
-# Modes for which colour temperature ranges (K) are available have these settings in brackets.
-# off, auto, sun, cloud, shade, tungsten, fluorescent, incandescent, flash, horizon, greyworld
-rpi0_awb=sun
-
-# Sharpness range -100 to 100. Default 0.
-rpi0_sharpness=0
-
-# Contrast range -100 to 100. Default 0.
-rpi0_contrast=0
-
-# Brightness range 0 to 100. Default 50.
-rpi0_brightness=50
-
-# Saturation range -100 to 100. Default 0.
-rpi0_saturation=0
-
-# 0 Normal
-# 1 Mirror
-# 2 V-Flip
-# 3 Mirror And V-Flip(180 Degree Rotate)
-rpi0_mirrormode=0
-
-# There are extra paramaters available beyond what is above or already applied in the code, see the RPI forum for all settings.
-# Do not use the following in the EXTRAPARAMS as they are already applied:
-# -cd -n -fl -ih -pf -if -ex -mm -awb -sh -co -br -sa -hf -vf
-EXTRAPARAMS=""
-
-# ------GENERIC VEYE SETTINGS------------------
-
-EXTRAPARAMS_VEYE="-cd H264 -n -fl -ih -pf high -if both"
-
-# ------VEYE MIPI SETTINGS---------------------
-
-# 0x00 Normal
-# 0x01 Mirror
-# 0x02 V-Flip
-# 0x03 Mirror And V-Flip(180 Degree Rotate)
-VEYE_MIPI_mirrormode=0x00
+# >>>>>>>>>>[VEYE-IMX290 CAMERA MODULE & SETTINGS]--
+EXTRAPARAMS_IMX290="-cd H264 -n -fl -ih -pf high -if both"
+IMX290_videoformat=PAL
 
 # 0x00 Back Light Mode OFF
 # 0x01 Back Light Mode LOW
 # 0x02 Back Light Mode HIGH
 # 0x03 DOL WDR Enable
-VEYE_MIPI0_wdrmode=0x03
+IMX290_wdrmode=0x03
+
+# 0x00 Normal
+# 0x01 Mirror
+# 0x02 V-Flip
+# 0x03 Mirror And V-Flip(180 Degree Rotate)
+IMX290_mirrormode=0x00
 
 # This is a complicated setting, see here: http://wiki.veye.cc/index.php/VEYE-MIPI-290/327_i2c
-VEYE_MIPI0_denoise=0x00
+IMX290_denoise=0x00
 
 # 0x00 means fixed framerate, up to 0x11 will allow the camera to adjust framerate to increase exposure, which 
 # may not be desirable for FPV
-VEYE_MIPI0_lowlight=0x00
+IMX290_lowlight=0x00
 
 # agc indicated max gain of AE mode
 # Range 0x00 to 0x0F
-VEYE_MIPI0_agc=0x00
+IMX290_agc=0x00
 
 # AE Target Brightness
 # Range 0x00 to 0x64
-VEYE_MIPI0_brightness=0x32
+IMX290_brightness=0x32
 
 # AE adjust speed, p1 is agc speed, p2 is shutter speed，Slow to Fast: [0, 0x64]
 # Range 0x00 to 0x64
-VEYE_MIPI0_aespeed1=0x32
-VEYE_MIPI0_aespeed2=0x32
+IMX290_aespeed1=0x32
+IMX290_aespeed2=0x32
 
 # Range 0x00 to 0xFF
-VEYE_MIPI0_contrast=0x80
+IMX290_contrast=0x80
 
 # Range 0x00 to 0x64
-VEYE_MIPI0_saturation=0x32
+IMX290_saturation=0x32
 
 # 0x0 disables, 0x1 enables
-VEYE_MIPI0_sharppen1=0x1
+IMX290_sharppen1=0x1
 
 # Sets the sharpen strength, sharppen1 must be enabled
 # Range [0x0-0xA]
-VEYE_MIPI0_sharppen2=0xA
+IMX290_sharppen2=0xA
 
 # The overall AE target value in WDR mode.
 # Takes effect in WDR mode. range: [0-0xFF]
-VEYE_MIPI0_wdrtargetbr=0x80
+IMX290_wdrtargetbr=0x80
 
 # The auto exposure target value of the bright area in WDR mode.
 # Takes effect in WDR mode. range: [0-0xFF]
-VEYE_MIPI0_wdrbtargetbr=0x80
+IMX290_wdrbtargetbr=0x80
 
-#IR-CUT (Infrared cut-off filter) is a mechanical shutter design. It is placed between the lens and the image sensor, and is controlled by a motor or an electromagnet.
-#IR-CUT has two status: Block or Deliver the infrared.
-#Color Mode - Image is Color Mode and IR_CUT status Block infrared.
-#Black&White Mode - Image is Black&White Mode and IR_CUT status Deliver infrared.
-#Trigger Mode - Trigger pin : J3 pin1.
-#Trigger pin High(3.3~12V),Image is Black&White Mode and IR-CUT status Deliver infrared.
-#Trigger pin Low(GND),Image is Color Mode and IR-CUT status Bolck infrared.
-VEYE_MIPI0_daynightmode=0xFF
 
-#close AE, use manual shutter
-#value is exposure time（seconds）
-#If value is greater than or equal to 0x4B, it will reduce framerate.
-VEYE_MIPI0_mshutter=0x40
-
-#Set yuv seq of camera. Note: only supported on hdver >= 0x4
-VEYE_MIPI0_yuvseq=UYVY
-
-# ----------VEYE CS SETTINGS--------------------
-
-# Used to flip/mirror the IMX307 camera, separate setting from VEYE MIPI because they don't handle it the same way
+# Used to flip/mirror the IMX307 camera, separate setting from IMX290 because they don't handle it the same way
 # 0: normal, 1: flip, 2: mirror, 3: flip+mirror. 
-# Note that the IMX307 configuration system seems to expect numbers like 0, not 0x00 like VEYE MIPI mirrormode
-VEYE_CS_imagedir=0
-
-# IR-CUT (Infrared cut-off filter) is a mechanical shutter design. It is placed between the lens and the image sensor, and is controlled by a motor or an electromagnet.
-# IR-CUT has two status: Block or Deliver the infrared.
-# Color Mode 0x1 - Image is Color Mode and IR_CUT status Block infrared.
-# Black&White Mode 0x2 - Image is Black&White Mode and IR_CUT status Deliver infrared.
-# Trigger Mode 0x0 - Trigger pin : J4 pin1. Trigger pin High(3.3~12V),Image is Black&White Mode and IR-CUT status Deliver infrared. Trigger pin Low(GND),Image is Color Mode and IR-CUT status Bolck infrared.
-# IR-CUT day, Image black&white mode 0x3 - Image is Black&White Mode and IR_CUT status Block infrared.
-# IR-CUT night, Image color mode 0x4 - Image is Color Mode and IR_CUT status Deliver infrared.
-VEYE_CS0_daynightmode=0x1
-
-# hue，range [0,100].
-VEYE_CS0_hue=50
-
-# contrast，range [0,100].
-VEYE_CS0_contrast=50
-
-# saturation，range [0,100].
-VEYE_CS0_satu=50
-
-# 0 : auto exposure
-# 1: manual exposure
-VEYE_CS0_expmode=0
-
-# The target brightness in automatic exposure mode. Effective when expmode is auto.
-# range:[0,255]
-VEYE_CS0_aetarget=127
-
-# the max exposure time in automatic exposure mode，unit: us。Effective when expmode is auto.
-# range:(100,1/framerate]，if framerate is 30，then the range is (100,33333].
-# special value：0xFFFFFFFF=1/framerate, the camera will automatically adjust according to the working mode.
-VEYE_CS0_aetime=400000
-
-# Maximum total system gain in automatic exposure mode,unit: dB. Effective when expmode is auto.
-# agc includes Again+Dgain+ISPGain.
-# X is the integer part and Y is the decimal part, for example X is 2 and Y is 3 means 2.3dB.
-# X range: depending on sensor.
-# Y range: [0-9].
-# IMX307,again range is[0,135]dB, step 0.3dB.
-VEYE_CS0_aeagc1=135
-VEYE_CS0_aeagc2=0
-
-# manual exposure time, us.
-# range:[0-1000000/framerate]
-# If you need ultra-long exposure, you need to adjust the framerate to match this parameter.
-VEYE_CS0_metime=10000
-
-# manual again，dB. Effective when expmode is manual.
-# X is the integer part and Y is the decimal part, for example X is 2 and Y is 3 means 2.3dB.
-# X range: depending on sensor.
-# Y range: [0-9].
-# IMX307,again range is[0,27]dB, step 0.3dB.
-VEYE_CS0_meagain1=27
-VEYE_CS0_meagain2=0
-
-# manual dgain，dB. Effective when expmode is manual.
-# X is the integer part and Y is the decimal part, for example X is 2 and Y is 3 means 2.3dB.
-# X range: depending on sensor.
-# Y range: [0-9].
-# IMX307,dgain range is[0,42]dB, step 0.3dB.
-VEYE_CS0_medgain1=42
-VEYE_CS0_medgain2=0
-
-# 0 : auto white balance
-# 1: --NOT SUPPORTED IN OPENHD--- manual white balance, gain mode
-# 2: manual white balance, color temperature mode
-VEYE_CS0_awbmode=0
-
-# manual white balance, color temperature mode, color tempture,range [1500,15000]
-VEYE_CS0_mwbcolortemp=3200
-
-# Set yuv seq of camera. YUYV or UYVY
-# Note: only supported on firmware version >= 2.38
-VEYE_CS0_yuvseq=UYVY
-
-
-# >>>>>>>>>>[CAMERA PROFILES]--
-# This section is to provide a number of default profile settings for easy switching on RPi and VEYE CAMERAS.
-
-# For explanation of settings please refer to the section above.
-
-# This is the setting for profile selection.
-# Profile 3=3, Profile 2=2, Profile 1=1, Custom=0
-# Default is Custom which uses the settings from the above section which can be changed in the UI.
-camera_profile=0
-
-#-----------RPI CAMERA PROFILES
-
-# Profile 1
-rpi1_camera_exposure=backlight
-rpi1_metering_mode=average
-rpi1_awb=sun
-rpi1_sharpness=0
-rpi1_contrast=0
-rpi1_brightness=50
-rpi1_saturation=0
-rpi1_mirrormode=0
-
-# Profile 2
-rpi2_camera_exposure=backlight
-rpi2_metering_mode=average
-rpi2_awb=sun
-rpi2_sharpness=0
-rpi2_contrast=0
-rpi2_brightness=50
-rpi2_saturation=0
-rpi2_mirrormode=0
-
-# Profile 3
-rpi3_camera_exposure=backlight
-rpi3_metering_mode=average
-rpi3_awb=sun
-rpi3_sharpness=0
-rpi3_contrast=0
-rpi3_brightness=50
-rpi3_saturation=0
-rpi3_mirrormode=0
-
-# ----------VEYE MIPI PROFILES-----------------
-
-# Profile 1
-VEYE_MIPI1_wdrmode=0x03
-VEYE_MIPI1_denoise=0x00
-VEYE_MIPI1_lowlight=0x00
-VEYE_MIPI1_agc=0x00
-VEYE_MIPI1_brightness=0x32
-VEYE_MIPI1_aespeed1=0x32
-VEYE_MIPI1_aespeed2=0x32
-VEYE_MIPI1_contrast=0x80
-VEYE_MIPI1_saturation=0x32
-VEYE_MIPI1_sharppen1=0x1
-VEYE_MIPI1_sharppen2=0xA
-VEYE_MIPI1_wdrtargetbr=0x80
-VEYE_MIPI1_wdrbtargetbr=0x80
-VEYE_MIPI1_daynightmode=0xFF
-VEYE_MIPI1_mshutter=0x40
-VEYE_MIPI1_yuvseq=UYVY
-
-# Profile 2
-VEYE_MIPI2_wdrmode=0x03
-VEYE_MIPI2_denoise=0x00
-VEYE_MIPI2_lowlight=0x00
-VEYE_MIPI2_agc=0x00
-VEYE_MIPI2_brightness=0x32
-VEYE_MIPI2_aespeed1=0x32
-VEYE_MIPI2_aespeed2=0x32
-VEYE_MIPI2_contrast=0x80
-VEYE_MIPI2_saturation=0x32
-VEYE_MIPI2_sharppen1=0x1
-VEYE_MIPI2_sharppen2=0xA
-VEYE_MIPI2_wdrtargetbr=0x80
-VEYE_MIPI2_wdrbtargetbr=0x80
-VEYE_MIPI2_daynightmode=0xFF
-VEYE_MIPI2_mshutter=0x40
-VEYE_MIPI2_yuvseq=UYVY
-
-# Profile 3
-VEYE_MIPI3_wdrmode=0x03
-VEYE_MIPI3_denoise=0x00
-VEYE_MIPI3_lowlight=0x00
-VEYE_MIPI3_agc=0x00
-VEYE_MIPI3_brightness=0x32
-VEYE_MIPI3_aespeed1=0x32
-VEYE_MIPI3_aespeed2=0x32
-VEYE_MIPI3_contrast=0x80
-VEYE_MIPI3_saturation=0x32
-VEYE_MIPI3_sharppen1=0x1
-VEYE_MIPI3_sharppen2=0xA
-VEYE_MIPI3_wdrtargetbr=0x80
-VEYE_MIPI3_wdrbtargetbr=0x80
-VEYE_MIPI3_daynightmode=0xFF
-VEYE_MIPI3_mshutter=0x40
-VEYE_MIPI3_yuvseq=UYVY
-
-# ----------VEYE CS PROFILES-------------------
-
-# Profile 1
-VEYE_CS1_daynightmode=0x1
-VEYE_CS1_hue=50
-VEYE_CS1_contrast=50
-VEYE_CS1_satu=50
-VEYE_CS1_expmode=0
-VEYE_CS1_aetarget=127
-VEYE_CS1_aetime=400000
-VEYE_CS1_aeagc1=135
-VEYE_CS1_aeagc2=0
-VEYE_CS1_metime=10000
-VEYE_CS1_meagain1=27
-VEYE_CS1_meagain2=0
-VEYE_CS1_medgain1=42
-VEYE_CS1_medgain2=0
-VEYE_CS1_awbmode=0
-VEYE_CS1_mwbcolortemp=3200
-VEYE_CS1_yuvseq=UYVY
-
-# Profile 2
-VEYE_CS2_daynightmode=0x1
-VEYE_CS2_hue=50
-VEYE_CS2_contrast=50
-VEYE_CS2_satu=50
-VEYE_CS2_expmode=0
-VEYE_CS2_aetarget=127
-VEYE_CS2_aetime=400000
-VEYE_CS2_aeagc1=135
-VEYE_CS2_aeagc2=0
-VEYE_CS2_metime=10000
-VEYE_CS2_meagain1=27
-VEYE_CS2_meagain2=0
-VEYE_CS2_medgain1=42
-VEYE_CS2_medgain2=0
-VEYE_CS2_awbmode=0
-VEYE_CS2_mwbcolortemp=3200
-VEYE_CS2_yuvseq=UYVY
-
-# Profile 3
-VEYE_CS3_daynightmode=0x1
-VEYE_CS3_hue=50
-VEYE_CS3_contrast=50
-VEYE_CS3_satu=50
-VEYE_CS3_expmode=0
-VEYE_CS3_aetarget=127
-VEYE_CS3_aetime=400000
-VEYE_CS3_aeagc1=135
-VEYE_CS3_aeagc2=0
-VEYE_CS3_metime=10000
-VEYE_CS3_meagain1=27
-VEYE_CS3_meagain2=0
-VEYE_CS3_medgain1=42
-VEYE_CS3_medgain2=0
-VEYE_CS3_awbmode=0
-VEYE_CS3_mwbcolortemp=3200
-VEYE_CS3_yuvseq=UYVY
+# Note that the IMX307 configuration system seems to expect numbers like 0, not 0x00 like imx290 mirrormode
+IMX307_imagedir=0
 
 # ======================================================================================
 #                    <DEVELOPER-ENHANCEMENTS IN PROGRESS OPTIONS>
 # ======================================================================================
 
 # >>>>>>>>>>[MIRROR DSI AND HDMI DISPLAY]--See wiki for how-to
-MirrorDSI_To_HDMI=N
+MirrorDSI_To_HDMI=Y
 
 # >>>>>>>>>>[MSP TELEMETRY STUFF]--not supported yet, do not change
 FC_MSP_SERIALPORT=/dev/ttyUSB0
@@ -730,11 +433,11 @@ AIRODUMP_SECONDS=25
 RemoteSettingsEnabled=2
 
 # >>>>>>>>>>[SmartSync Settings]--**SmartSync_StartupMode="0" means air/ground will boot quickly but can trigger SmartSync with CH2 movement or GPIO# 26 Cross Connected.
-SmartSync_StartupMode=0
+SmartSync_StartupMode=1
 # RC Channel should default to middle (1500pwm position) to work properly
 SmartSyncRC_Channel=2
 # DO NOT CHANGE THE BELOW SMARTSYNC SETTINGS!
-SmartSyncGround_Countdown=50
+SmartSyncGround_Countdown=60
 SmartSyncOFF_RC_Value=1700
 SmartSyncStayON_RC_Value=1300
 SmartSyncControlVia=joystick
