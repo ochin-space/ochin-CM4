@@ -8,11 +8,11 @@
 # By default the frequency will be chosen automatically for the hardware you have connected to your ground/air pi,
 # but if you want to set a frequency manually, make sure it is supported by your hardware. Atheros cards are 2.4Ghz only
 # and Realtek 8812/14 cards are only stable on 5.8Ghz. Frequencies are listed at the bottom of this file
-FREQ=auto
+FREQ=5320
 
 # >>>>>>>>>>[DATARATE] Lower settings yield higher range and vice versa.  
 # Below are the datarate settings for Legacy B/G and MCS "N" modes. 
-DATARATE=4
+DATARATE=3
 
 # 1 - 5.5   =    802.11b         1 - 6.5   =     MCS 0
 # 2 - 11    =    802.11b         2 - 13    =     MCS 1
@@ -34,8 +34,8 @@ UseLDPC=N
 DATARATE_SECONDARY_8812AU=2
 
 # >>>>>>>>>>[TXPOWER-AIR/GROUND]-- For Atheros AR9271 or RTL8812/14AU Cards ONLY
-TxPowerAir=10
-TxPowerGround=10
+TxPowerAir=58
+TxPowerGround=58
 
 # >>>>>>>>>>[TXPOWER-RALINK]-- (Not confirmed Working]
 TXPOWER=2000
@@ -70,7 +70,7 @@ ENABLE_SCREENSHOTS=N
 DISPLAY_OSD=Y
 
 # set to "Y" to use the QOpenHD app instead of the original OSD
-ENABLE_QOPENHD=Y
+ENABLE_QOPENHD=N
 
 # >>>>>>>>>>[5/10/20Mhz BANDWIDTH SETTINGS]--Default 20mhz
 # !!!!!!! ATHEROS CARDS ONLY  !!!!!!!!!!!!!!!!!!!!!
@@ -99,7 +99,7 @@ VIDEO_BITRATE=auto
 # this to a lower value like 60% to avoid a delayed video stream.
 # On free channels you may set this to a higher value like 75% to get a higher
 # bitrate and thus image quality.
-BITRATE_PERCENT=65
+BITRATE_PERCENT=50
 
 # >>>>>>>>>>[CAMERA RESOLUTION]--
 # V1 cam: 1280x720: 30fps, 48fps. 1920x1080: 30fps
@@ -109,19 +109,18 @@ HEIGHT=720
 
 # >>>>>>>>>>[CAMERA FPS]--"48 default"
 # Choose between 30, 40, 48, 59.9, values above 60 are experimental
-FPS=48
+FPS=30
 
 # >>>>>>>>>>[KEYFRAME RATE]-- 
 # ***This is how often a "fresh-new" video frame is transmitted***
 # Lower values mean faster glitch-recovery, but also lower video quality.
 # With fps=48 and keyframerate=5, glitches will stay visible for around 100ms in worst case.
 # You can set this higher or lower according to your needs. Minimum value is 2.
-KEYFRAMERATE=5
+KEYFRAMERATE=10
 #
 # >>>>>>>>>>[RASPIVID CAMERA SETTINGS]--
 # There are dozens of paramaters, see the RPI forum for all settings.
-#EXTRAPARAMS="-cd H264 -n -fl -ih -pf high -if both -ex sports -mm average -awb horizon"
-EXTRAPARAMS="-cd H264 -n -fl -ih -pf high -if both -ex sports -br 56 -mm average -awb horizon"
+EXTRAPARAMS="-cd H264 -n -fl -ih -pf high -if both -ex sports -mm average -awb horizon"
 # UNCOMMENT, AND USE THESE CAMERA SETTINGS FOR THE B101 OR SIMILAR HDMI-CSI ADAPTER
 #EXTRAPARAMS="-cd H264 -n -fl -ih -pf high -if both"
 
@@ -158,7 +157,7 @@ WIFI_HOTSPOT_NIC=internal
 # and internal hotspot is 2.4ghz. For 2.4ghz hotspot and 2.4ghz video must be manually set at your own risk!
 # Set "Y" to enable Hotspot and you (manually) set the band & ch below. 
 # Set to "N" for no wifi hotspot (Recommended If NOT using Pi3b+ & 2.4ghz for video as it could # interfere.
-WIFI_HOTSPOT=auto
+WIFI_HOTSPOT=N
 
 # >>>>>>>>>>[HOTSPOT BAND/CHANNEL_MANUAL CONFIG]
 # NOTE with WIFI_HOTSPOT=auto your setting here will be over written.
@@ -217,7 +216,7 @@ EncryptionOrRange=Range
 # Set to "sumd" for Graupner SUMD, "ibus" for Flysky IBUS, "srxl" for Multiplex SRXL/XBUS
 # Mode B. Set to "disabled" to disable
 # **See joyconfig.txt for other settings, default settings work for Taranis in USB.
-RC=mavlink
+RC=ibus
 
 # >>>>>>>>>>[DEDICATED WIFI-CARD UPLINK/RC MAC ADDR.]-- If different types of Ground wifi cards are used.
 # Set this if you have 1 High-Power ground card plus 1 or more lower power cards so that
@@ -375,7 +374,7 @@ IMX307_imagedir=0
 # ======================================================================================
 
 # >>>>>>>>>>[MIRROR DSI AND HDMI DISPLAY]--See wiki for how-to
-MirrorDSI_To_HDMI=N
+MirrorDSI_To_HDMI=Y
 
 # >>>>>>>>>>[MSP TELEMETRY STUFF]--not supported yet, do not change
 FC_MSP_SERIALPORT=/dev/ttyUSB0
@@ -434,11 +433,11 @@ AIRODUMP_SECONDS=25
 RemoteSettingsEnabled=2
 
 # >>>>>>>>>>[SmartSync Settings]--**SmartSync_StartupMode="0" means air/ground will boot quickly but can trigger SmartSync with CH2 movement or GPIO# 26 Cross Connected.
-SmartSync_StartupMode=0
+SmartSync_StartupMode=1
 # RC Channel should default to middle (1500pwm position) to work properly
 SmartSyncRC_Channel=2
 # DO NOT CHANGE THE BELOW SMARTSYNC SETTINGS!
-SmartSyncGround_Countdown=50
+SmartSyncGround_Countdown=60
 SmartSyncOFF_RC_Value=1700
 SmartSyncStayON_RC_Value=1300
 SmartSyncControlVia=joystick
@@ -577,20 +576,20 @@ FREQSCAN=N
 TXMODE=single
 #
 MAC_RX[0]=00c0ca91ee30
-FREQ_RX[0]=2412
+FREQ_RX[0]=2484
 #
 MAC_RX[1]=24050f953384
-FREQ_RX[1]=2412
+FREQ_RX[1]=2484
 #
 MAC_RX[2]=24050f953378
-FREQ_RX[2]=2412
+FREQ_RX[2]=2484
 #
 MAC_RX[3]=24050f953373
-FREQ_RX[3]=2412
+FREQ_RX[3]=2484
 #
 #
 MAC_TX[0]=24050f953378
 FREQ_TX[0]=5745
 #
 MAC_TX[1]=ec086b1c7834
-FREQ_TX[1]=2422
+FREQ_TX[1]=2472
