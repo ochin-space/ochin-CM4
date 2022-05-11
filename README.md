@@ -19,3 +19,11 @@ o On board electronic switch to select between PCB trace or external antenna
 * MIPI CSI-2:
 o 1×2-lane MIPI CSI camera port, 1×4-lane MIPI CSI camera port
 * 1×USART, 3×UART, 1×I2C port, 1×SPI port, Analog Video Output
+
+In this repository you can find the manual of the board and a short guide with some tips on how to make the connections to it. 
+
+It is important to read them both before turning on the ochin_CM4 board, to know its characteristics and above all the sequence in which the signals are present on the connectors.
+
+<ins>
+Never trust the color code of the GHS cables, the sequence in which commercial GHS cables are assembled is often random and does not reflect the sequence of the signals present in the connectors of the ochin_CM4 board.
+</ins>
