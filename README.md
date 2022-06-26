@@ -20,7 +20,7 @@ o On board electronic switch to select between PCB trace or external antenna
 o 1×2-lane MIPI CSI camera port, 1×4-lane MIPI CSI camera port
 * 1×USART, 3×UART, 1×I2C port, 1×SPI port, Analog Video Output
 
-In this repository you can find the manual of the board and a short guide with some tips on how to make the connections to it. 
+In this repository you can find the manual of the board, a quick start guide for flashing the CM4 module and a guide with some tips on how to make the connections to the ochin board. 
 
 It is important to read them both before turning on the ochin_CM4 board, to know its characteristics and above all the sequence in which the signals are present on the connectors.
 
