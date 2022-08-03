@@ -26,10 +26,8 @@ It is important to read them both before turning on the ochin_CM4 board, to know
 
 ## Important!!!
 
-<ins>
 Print and use the extractor for the CM4 module if you don't want to break the mezzanines, you can find the .stl in the "3d/Covers turrets and extractors" section of this repository.
 
 Take a look at the "öchìn CM4 - Wiring and Suggestions.pdf" before power the board on, it may save your time and your devices.
 
 Never trust the color code of the GHS cables, the sequence in which commercial GHS cables are assembled is often random and does not reflect the sequence of the signals present in the connectors of the ochin_CM4 board.
-</ins>
