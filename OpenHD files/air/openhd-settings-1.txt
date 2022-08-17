@@ -70,7 +70,7 @@ ENABLE_SCREENSHOTS=N
 DISPLAY_OSD=Y
 
 # set to "Y" to use the QOpenHD app instead of the original OSD
-ENABLE_QOPENHD=N
+ENABLE_QOPENHD=Y
 
 # >>>>>>>>>>[5/10/20Mhz BANDWIDTH SETTINGS]--Default 20mhz
 # !!!!!!! ATHEROS CARDS ONLY  !!!!!!!!!!!!!!!!!!!!!
@@ -433,7 +433,7 @@ AIRODUMP_SECONDS=25
 RemoteSettingsEnabled=2
 
 # >>>>>>>>>>[SmartSync Settings]--**SmartSync_StartupMode="0" means air/ground will boot quickly but can trigger SmartSync with CH2 movement or GPIO# 26 Cross Connected.
-SmartSync_StartupMode=1
+SmartSync_StartupMode=0
 # RC Channel should default to middle (1500pwm position) to work properly
 SmartSyncRC_Channel=2
 # DO NOT CHANGE THE BELOW SMARTSYNC SETTINGS!
