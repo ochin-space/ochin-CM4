@@ -8,7 +8,7 @@
 # By default the frequency will be chosen automatically for the hardware you have connected to your ground/air pi,
 # but if you want to set a frequency manually, make sure it is supported by your hardware. Atheros cards are 2.4Ghz only
 # and Realtek 8812/14 cards are only stable on 5.8Ghz. Frequencies are listed at the bottom of this file
-FREQ=5320
+FREQ=5745
 
 # >>>>>>>>>>[DATARATE] Lower settings yield higher range and vice versa.  
 # Below are the datarate settings for Legacy B/G and MCS "N" modes. 
