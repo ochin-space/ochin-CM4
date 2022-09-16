@@ -24,6 +24,12 @@ In this repository you can find the manual of the board, a quick start guide for
 
 It is important to read them both before turning on the ochin_CM4 board, to know its characteristics and above all the sequence in which the signals are present on the connectors.
 
+# Community
+
+Feel free to join the öchìn CM4 [Discord](https://discord.gg/Uj9XfSwn) group with members helping each other.
+
+
+
 ## Important!!!
 
 Print and use the extractor for the CM4 module if you don't want to break the mezzanines, you can find the .stl in the "3d/Covers turrets and extractors" section of this repository.
