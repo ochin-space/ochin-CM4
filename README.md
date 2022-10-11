@@ -30,7 +30,9 @@ Feel free to join the öchìn CM4 [Discord](https://discord.gg/Uj9XfSwn) group w
 
 
 
-## Important!!!
+# Important!!!
+
+The ochin_CM4 board must be used with a Raspberry Pi CM4 module with eMMC (the lite version is not good), there is no slot for the microsd card onboard. The reasons for this choice are explained in the manual and concern the optimization of spaces and the efficiency of the internal flash.
 
 Print and use the extractor for the CM4 module if you don't want to break the mezzanines, you can find the .stl in the "3d/Covers turrets and extractors" section of this repository.
 
