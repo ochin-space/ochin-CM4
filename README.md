@@ -29,6 +29,10 @@ It is important to read them both before turning on the ochin_CM4 board, to know
 Feel free to join the öchìn CM4 [Discord](https://discord.gg/Uj9XfSwn) group with members helping each other.
 
 
+# Where to buy the ochin_CM4 boards
+The ochin_CM4 boards are manufactured and sold by Seeedstudio. You can purchase ochin_CM4 boards from Seeedstudio's marketplace, https://www.seeedstudio.com or from Seeedstudio's business partners (Digikey, Mouser, RS components and many others).
+
+
 
 # Important!!!
 
