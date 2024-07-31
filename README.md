@@ -24,6 +24,7 @@ In this repository you can find the manual of the board, a quick start guide for
 
 It is important to read them both before turning on the ochin_CM4 board, to know its characteristics and above all the sequence in which the signals are present on the connectors.
 
+
 # Community
 
 Feel free to join the öchìn CM4 [Discord](https://discord.gg/Uj9XfSwn) group with members helping each other.
@@ -32,6 +33,18 @@ Feel free to join the öchìn CM4 [Discord](https://discord.gg/Uj9XfSwn) group w
 # Where to buy the ochin_CM4 boards
 The ochin_CM4 boards are manufactured and sold by Seeedstudio. You can purchase ochin_CM4 boards from Seeedstudio's marketplace, https://www.seeedstudio.com or from Seeedstudio's business partners (Digikey, Mouser, RS components and many others).
 
+
+# License Notice for This GitHub Repository
+
+This GitHub repository contains various resources that are subject to specific licenses. Please note the following information regarding the applicable licenses:
+
+* Documentation, Manuals, PDF Schematics, scripts and Other Textual Content: All textual documents present in this repository, including manuals, schematics, and documentation, are released under the GNU Free Documentation License (GFDL).
+
+* Hardware (KiCad Sources, Gerber Files, Assembly Files, etc.): The hardware-related items, including but not limited to KiCad sources, Gerber files, and assembly files, are subject to a proprietary license. This means that these resources are not released as open source and their use is governed by the terms specified in the accompanying documentation or separate terms of use provided.
+
+Please respect the conditions of both licenses when using and distributing the materials in this repository.
+
+For any questions or clarifications regarding the licenses, feel free to contact us.
 
 
 # Important!!!
@@ -43,3 +56,4 @@ Print and use the extractor for the CM4 module if you don't want to break the me
 Take a look at the "öchìn CM4 - Wiring and Suggestions.pdf" before power the board on, it may save your time and your devices.
 
 Never trust the color code of the GHS cables, the sequence in which commercial GHS cables are assembled is often random and does not reflect the sequence of the signals present in the connectors of the ochin_CM4 board.
+
