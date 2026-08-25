@@ -1,5 +1,21 @@
 ![Alt text](images/logo.png?raw=true&=200x "ochin_CM4")
 # ochin_CM4
+
+⚠️ **This project is obsolete and no longer maintained.**
+
+This repository is archived and kept online for reference and historical purposes only.  
+No further development, bug fixes, or support will be provided.
+
+---
+
+## 🛑 Project Status
+
+- **Last update**: Nov 8, 2022
+- **Current state**: Obsolete / Unmaintained
+- **Reason**: Project discontinued and not in use anymore.
+
+---
+
 The öchìn CM4 it’s a tiny carrier board for the Raspberry Pi Compute Module  It is designed for applications where a powerful machine with low consumption and small dimensions is required. The small form factor makes it interesting for all those applications where the space available is not much and containing the weight is important, such as in robotics, home automation and IOT.
 ![Alt text](images/ochin_CM4_topDoc.png?raw=true "ochin_CM4")
 The board is compatible with all Raspberry Pi CM4 modules equipped with eMMC. Depending on your needs, you can select a CM4 module with an SDRAM starting from 1GB up to 8GB and the eMMC from 8GB up to 32GB, with or without the Wi-Fi / BT4 connection.
@@ -29,9 +45,26 @@ It is important to read them both before turning on the ochin_CM4 board, to know
 
 Feel free to join the öchìn CM4 [Discord](https://discord.gg/Uj9XfSwn) group with members helping each other.
 
+# Intended Use
+
+The öchìn CM4v2 is a general-purpose carrier board intended for civilian applications such as embedded computing, robotics, IoT, home automation, multimedia, computer vision, research and education.
+
+The board is not designed, marketed or intended for military or weapons-related applications. Users are responsible for ensuring that their use of the hardware and software complies with all applicable laws, regulations and export-control requirements.
 
 # Where to buy the ochin_CM4 boards
 The ochin_CM4 boards are manufactured and sold by Seeedstudio. You can purchase ochin_CM4 boards from Seeedstudio's marketplace, https://www.seeedstudio.com or from Seeedstudio's business partners (Digikey, Mouser, RS components and many others).
+
+# License Notice for This GitHub Repository
+
+This GitHub repository contains various resources that are subject to specific licenses. Please note the following information regarding the applicable licenses:
+
+* Documentation, Manuals, PDF Schematics, scripts and Other Textual Content: All textual documents present in this repository, including manuals, schematics, and documentation, are released under the GNU Free Documentation License (GFDL).
+
+* Hardware (KiCad Sources, Gerber Files, Assembly Files, etc.): The hardware-related items, including but not limited to KiCad sources, Gerber files, and assembly files, are subject to a proprietary license. This means that these resources are not released as open source and their use is governed by the terms specified in the accompanying documentation or separate terms of use provided.
+
+Please respect the conditions of both licenses when using and distributing the materials in this repository.
+
+For any questions or clarifications regarding the [LICENSE](LICENSE), feel free to contact us.
 
 
 # License Notice for This GitHub Repository
